@@ -1,0 +1,102 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String      @id @default(cuid())
+  email           String      @unique
+  firstName       String?
+  lastName        String?
+  company         String?
+  hashedPassword  String?
+  emailVerified   DateTime?
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  analyses        Analysis[]
+  savedMissions   SavedMission[]
+  
+  @@index([email])
+}
+
+model Analysis {
+  id              String      @id @default(cuid())
+  userId          String?
+  user            User?       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Mission Statement Data
+  missionText     String      @db.Text
+  industry        String
+  wordCount       Int
+  
+  // Scores
+  overallScore    Int
+  clarityScore    Int
+  specificityScore Int
+  impactScore     Int
+  authenticityScore Int
+  memorabilityScore Int
+  
+  // Analysis Data (stored as JSON)
+  fullAnalysis    Json        // Complete AI response
+  weaknesses      Json?       // Primary, secondary, tertiary weaknesses
+  recommendations Json[]      // Array of recommendations
+  alternatives    Json        // Alternative rewrites with rationales
+  
+  // Metadata
+  aiModel         String?     @default("gpt-4-turbo-preview")
+  isAiAnalysis    Boolean     @default(true)
+  createdAt       DateTime    @default(now())
+  
+  @@index([userId, createdAt])
+  @@index([industry])
+  @@index([overallScore])
+}
+
+model SavedMission {
+  id              String      @id @default(cuid())
+  userId          String
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title           String
+  missionText     String      @db.Text
+  industry        String
+  notes           String?     @db.Text
+  isFavorite      Boolean     @default(false)
+  
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  @@index([userId, createdAt])
+  @@index([userId, isFavorite])
+}
+
+model EmailCapture {
+  id              String      @id @default(cuid())
+  email           String      @unique
+  firstName       String?
+  company         String?
+  
+  // Track the analysis they were interested in
+  missionText     String?     @db.Text
+  overallScore    Int?
+  industry        String?
+  
+  // Email status
+  reportSent      Boolean     @default(false)
+  reportSentAt    DateTime?
+  unsubscribed    Boolean     @default(false)
+  
+  createdAt       DateTime    @default(now())
+  
+  @@index([email])
+  @@index([createdAt])
+}

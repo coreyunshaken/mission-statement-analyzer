@@ -1,0 +1,262 @@
+
+> my-v0-project@0.1.0 dev
+> next dev
+
+   ▲ Next.js 15.2.4
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.1.2:3000
+   - Environments: .env.local, .env
+
+ ✓ Starting...
+ ✓ Ready in 1125ms
+ ○ Compiling /test-simple ...
+ ✓ Compiled /test-simple in 1975ms (680 modules)
+ ✓ Compiled /_not-found in 507ms (652 modules)
+ GET /test-simple 404 in 667ms
+ ○ Compiling / ...
+ ✓ Compiled / in 811ms (869 modules)
+ GET / 200 in 959ms
+ GET / 200 in 54ms
+ ○ Compiling /api/analyze ...
+ ✓ Compiled /api/analyze in 566ms (1063 modules)
+Error analyzing mission statement: Error: 401 Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.
+    at async POST (app/api/analyze/route.ts:196:23)
+  194 |     }
+  195 |
+> 196 |     const completion = await openai.chat.completions.create({
+      |                       ^
+  197 |       model: 'gpt-4-turbo-preview',
+  198 |       messages: [
+  199 |         { {
+  status: 401,
+  headers: Headers {
+    date: 'Sat, 26 Jul 2025 00:40:37 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '274',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_aaddfd5ba4a1abbfc250617c30ff3b73',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=VXaP_on75qEJ4MP15g2aa99KDHxzl.x_FuAa1SbwYKs-1753490437-1.0.1.1-X350WC2H3NAdrpQyOc7lRuHhgO2QrSoE2g_9hKLQkWTRr8C3EGJQJVa5mulTsgMcaRQHdgZ.vxBYpVIpGJjVafAAzn3yHua9w0l9iFuRTog; path=/; expires=Sat, 26-Jul-25 01:10:37 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=aHzKT.SyENzzL9fQ.4YD7NeyvEn0JNyD4j5Xqw8iH4c-1753490437512-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'x-content-type-options': 'nosniff',
+    server: 'cloudflare',
+    'cf-ray': '964fd8c18b1d4cf9-BOS',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_aaddfd5ba4a1abbfc250617c30ff3b73',
+  error: [Object],
+  code: 'invalid_api_key',
+  param: null,
+  type: 'invalid_request_error'
+}
+ POST /api/analyze 500 in 1097ms
+ ✓ Compiled in 473ms (877 modules)
+ GET / 200 in 81ms
+ GET / 200 in 97ms
+ GET / 200 in 39ms
+ ✓ Compiled in 473ms (877 modules)
+ GET / 200 in 48ms
+ GET / 200 in 85ms
+ GET / 200 in 36ms
+ ✓ Compiled /api/analyze in 74ms (653 modules)
+Error analyzing mission statement: Error: 401 Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.
+    at async POST (app/api/analyze/route.ts:196:23)
+  194 |     }
+  195 |
+> 196 |     const completion = await openai.chat.completions.create({
+      |                       ^
+  197 |       model: 'gpt-4-turbo-preview',
+  198 |       messages: [
+  199 |         { {
+  status: 401,
+  headers: Headers {
+    date: 'Sat, 26 Jul 2025 00:44:22 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '274',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_d9f21a42891f1cfb70d2537d15d7c9a0',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=qiDZICOBfz_zQVXXDoeMzkOBV3x_nvlAQFgfbptZrGc-1753490662-1.0.1.1-Dd.oye2NzjLBKYihfSgO7BVw7X1WbdXA1rwIWuOl_8CbPbEoKW6y_bSCDzmrEO7WlGLNAweFpI9BfOSSxbCiudhC9qQlrSMt4EfFCZvIKB8; path=/; expires=Sat, 26-Jul-25 01:14:22 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=TdVsEL5ntEHNCUNhtgaVDFuF05Gfo26JUKUYNdCCRDo-1753490662195-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'x-content-type-options': 'nosniff',
+    server: 'cloudflare',
+    'cf-ray': '964fde3deebc903f-BOS',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_d9f21a42891f1cfb70d2537d15d7c9a0',
+  error: [Object],
+  code: 'invalid_api_key',
+  param: null,
+  type: 'invalid_request_error'
+}
+ POST /api/analyze 500 in 459ms
+ ✓ Compiled in 349ms (877 modules)
+ GET / 200 in 60ms
+ ✓ Compiled in 307ms (877 modules)
+ GET / 200 in 36ms
+ ✓ Compiled in 271ms (877 modules)
+ GET / 200 in 37ms
+ ✓ Compiled in 210ms (877 modules)
+ GET / 200 in 33ms
+ ✓ Compiled in 218ms (877 modules)
+ GET / 200 in 21ms
+ ✓ Compiled in 297ms (877 modules)
+ GET / 200 in 33ms
+ ✓ Compiled in 341ms (877 modules)
+ GET / 200 in 22ms
+ ✓ Compiled in 188ms (877 modules)
+ GET / 200 in 27ms
+ ✓ Compiled in 260ms (877 modules)
+ GET / 200 in 24ms
+ ✓ Compiled in 211ms (877 modules)
+ GET / 200 in 25ms
+ ✓ Compiled in 193ms (877 modules)
+ GET / 200 in 23ms
+ GET / 200 in 90ms
+ ✓ Compiled /api/analyze in 311ms (653 modules)
+ POST /api/analyze 400 in 396ms
+ ✓ Compiled in 527ms (877 modules)
+ GET / 200 in 70ms
+ ✓ Compiled in 476ms (877 modules)
+ GET / 200 in 56ms
+ ✓ Compiled in 299ms (877 modules)
+ GET / 200 in 34ms
+ ✓ Compiled in 304ms (877 modules)
+ GET / 200 in 31ms
+ ✓ Compiled in 289ms (877 modules)
+ GET / 200 in 29ms
+ ✓ Compiled in 315ms (877 modules)
+ GET / 200 in 39ms
+ ✓ Compiled in 282ms (877 modules)
+ GET / 200 in 29ms
+ ✓ Compiled in 289ms (877 modules)
+ GET / 200 in 24ms
+ ✓ Compiled in 282ms (877 modules)
+ GET / 200 in 37ms
+ ✓ Compiled in 378ms (877 modules)
+ GET / 200 in 34ms
+ ✓ Compiled in 394ms (877 modules)
+ GET / 200 in 26ms
+ ✓ Compiled in 390ms (877 modules)
+ GET / 200 in 23ms
+ ✓ Compiled in 197ms (877 modules)
+ GET / 200 in 21ms
+ ✓ Compiled in 167ms (877 modules)
+ GET / 200 in 23ms
+ GET / 200 in 87ms
+ ✓ Compiled /api/analyze in 230ms (653 modules)
+Error analyzing mission statement: Error: 401 Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.
+    at async POST (app/api/analyze/route.ts:196:23)
+  194 |     }
+  195 |
+> 196 |     const completion = await openai.chat.completions.create({
+      |                       ^
+  197 |       model: 'gpt-4-turbo-preview',
+  198 |       messages: [
+  199 |         { {
+  status: 401,
+  headers: Headers {
+    date: 'Sat, 26 Jul 2025 01:20:11 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '274',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_975f68986a2c54bb2247c6af3f53321d',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=QyeJn1BKOsiCJoHW6yeUTbQIFujJoLHNrHUT4CrUGx8-1753492810-1.0.1.1-WY_UPlhjA1oCVFwVH_buLP6239RP6Ry4POvPGY7bPY_wHS0NdrDF1gnj9R1mFN7pzN21wGRrhQ6c_7awyLTikl4xkXapES4_CNnPsA.la.g; path=/; expires=Sat, 26-Jul-25 01:50:10 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=2f.11OAheyngewU.c1Gm7icKHc6m2kKoCS1TL7EXB7c-1753492811004-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'x-content-type-options': 'nosniff',
+    server: 'cloudflare',
+    'cf-ray': '965012b3284c4ced-BOS',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_975f68986a2c54bb2247c6af3f53321d',
+  error: [Object],
+  code: 'invalid_api_key',
+  param: null,
+  type: 'invalid_request_error'
+}
+ POST /api/analyze 500 in 806ms
+ ✓ Compiled in 403ms (877 modules)
+ GET / 200 in 75ms
+ ✓ Compiled in 212ms (877 modules)
+ GET / 200 in 39ms
+ GET / 200 in 85ms
+ ✓ Compiled in 366ms (877 modules)
+ GET / 200 in 49ms
+ ✓ Compiled in 217ms (877 modules)
+ GET / 200 in 45ms
+ GET / 200 in 85ms
+ ✓ Compiled /api/analyze in 299ms (653 modules)
+Error analyzing mission statement: Error: 401 Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.
+    at async POST (app/api/analyze/route.ts:196:23)
+  194 |     }
+  195 |
+> 196 |     const completion = await openai.chat.completions.create({
+      |                       ^
+  197 |       model: 'gpt-4-turbo-preview',
+  198 |       messages: [
+  199 |         { {
+  status: 401,
+  headers: Headers {
+    date: 'Sat, 26 Jul 2025 01:28:43 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '274',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_93925b77eeda8a7371253cd4058b7876',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=ShP0kWrojCC0bDQjnwCj2XnGw0_sngQ_PDQDD7Lf8Lw-1753493323-1.0.1.1-wpmWw6DEdjMe4bolpK6D1mMDX4fQxXT83_NHU9ks6.1ZSBIWgytCGPVJ6pYFGPPyLA8UR2Vx4JzmgGCGINZ2CP8G7NDk7bPz8Vw_GXK05rk; path=/; expires=Sat, 26-Jul-25 01:58:43 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=8SZezLogOq7sRJYTcmJDdCTBt0bkcF8Js47RzNqRMWw-1753493323284-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'x-content-type-options': 'nosniff',
+    server: 'cloudflare',
+    'cf-ray': '96501f35ab0b4cd0-BOS',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_93925b77eeda8a7371253cd4058b7876',
+  error: [Object],
+  code: 'invalid_api_key',
+  param: null,
+  type: 'invalid_request_error'
+}
+ POST /api/analyze 500 in 772ms
+ ✓ Compiled in 341ms (877 modules)
+ GET / 200 in 109ms
+ ✓ Compiled in 509ms (877 modules)
+ GET / 200 in 44ms
+ GET / 200 in 94ms
+ ✓ Compiled /api/analyze in 70ms (653 modules)
+Error analyzing mission statement: Error: 401 Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.
+    at async POST (app/api/analyze/route.ts:196:23)
+  194 |     }
+  195 |
+> 196 |     const completion = await openai.chat.completions.create({
+      |                       ^
+  197 |       model: 'gpt-4-turbo-preview',
+  198 |       messages: [
+  199 |         { {
+  status: 401,
+  headers: Headers {
+    date: 'Sat, 26 Jul 2025 01:32:33 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '274',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_8e166a2adbeac2926c1dede048bcd676',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=pon0kJ3r.JSl6JtMxV9_5uKAqhVF7KCDE3YKE7b2mwM-1753493553-1.0.1.1-v5nHdN6EOQCDzDLoNgms.jmit0O73p1R6G3ZqZkhRHHtPRYJlwmwofsA2NYgdIkRzYVXRPKwsTbyYKVWr1MDd6MQIoh5TcvrPh8N7O1oZxs; path=/; expires=Sat, 26-Jul-25 02:02:33 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=sgAtshiBY3n3rss0zGNEOBYddUOS.ArnbrC6efDXH8g-1753493553298-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'x-content-type-options': 'nosniff',
+    server: 'cloudflare',
+    'cf-ray': '965024d3784c4d0d-BOS',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_8e166a2adbeac2926c1dede048bcd676',
+  error: [Object],
+  code: 'invalid_api_key',
+  param: null,
+  type: 'invalid_request_error'
+}
+ POST /api/analyze 500 in 484ms
