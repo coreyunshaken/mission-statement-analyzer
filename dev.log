@@ -260,3 +260,67 @@ Error analyzing mission statement: Error: 401 Incorrect API key provided: your_o
   type: 'invalid_request_error'
 }
  POST /api/analyze 500 in 484ms
+Error analyzing mission statement: Error: 401 Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.
+    at async POST (app/api/analyze/route.ts:196:23)
+  194 |     }
+  195 |
+> 196 |     const completion = await openai.chat.completions.create({
+      |                       ^
+  197 |       model: 'gpt-4-turbo-preview',
+  198 |       messages: [
+  199 |         { {
+  status: 401,
+  headers: Headers {
+    date: 'Tue, 29 Jul 2025 17:26:06 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '274',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_57e36cea7137d3b5b2bed10cd3983e42',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=.4bOxjYqzow_J7WrmFC.eTJV3UTk8flu5cOTdiSWHzM-1753809966-1.0.1.1-07EysaRFTM1EZcs8ynfSK5NSsvPCqOk3pL.yePmgLqNvEah2wrNgYH6zp8H_OD.pa9sgI24MNmPcRWK9hbUNMg88KKS4zfAqxnXwqZM14ss; path=/; expires=Tue, 29-Jul-25 17:56:06 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=a9kiyXONm7ENn8uSA4NQ6BnbGIJswE9zmRPFJFf89wE-1753809966473-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'x-content-type-options': 'nosniff',
+    server: 'cloudflare',
+    'cf-ray': '966e51c1aa618fea-BOS',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_57e36cea7137d3b5b2bed10cd3983e42',
+  error: [Object],
+  code: 'invalid_api_key',
+  param: null,
+  type: 'invalid_request_error'
+}
+ POST /api/analyze 500 in 317ms
+Error analyzing mission statement: Error: 401 Incorrect API key provided: your_ope************here. You can find your API key at https://platform.openai.com/account/api-keys.
+    at async POST (app/api/analyze/route.ts:196:23)
+  194 |     }
+  195 |
+> 196 |     const completion = await openai.chat.completions.create({
+      |                       ^
+  197 |       model: 'gpt-4-turbo-preview',
+  198 |       messages: [
+  199 |         { {
+  status: 401,
+  headers: Headers {
+    date: 'Tue, 29 Jul 2025 18:19:30 GMT',
+    'content-type': 'application/json; charset=utf-8',
+    'content-length': '274',
+    connection: 'keep-alive',
+    vary: 'Origin',
+    'x-request-id': 'req_50e1dc7d334951bcd30c81f4e3cb4851',
+    'strict-transport-security': 'max-age=31536000; includeSubDomains; preload',
+    'cf-cache-status': 'DYNAMIC',
+    'set-cookie': '__cf_bm=FjXiMc0pxokHTHojXQlCHJXAL6aBp12zkw.3MLkvVwU-1753813170-1.0.1.1-n.SwytFlzCKTH7l2EJovXAJqNStTxPGGS4rMPT8nI65NiBAXnbiQBnQV4BGuOJjLZYHU90Y3fSbJtqNar1XQLIUXKkFA8NZIt4XWJOSltGI; path=/; expires=Tue, 29-Jul-25 18:49:30 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None, _cfuvid=Rpf4RHCpFsKp2.Nun.KtTnRMs4AvozGMEfVydo6RMMg-1753813170285-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None',
+    'x-content-type-options': 'nosniff',
+    server: 'cloudflare',
+    'cf-ray': '966e9ff99af34d0c-BOS',
+    'alt-svc': 'h3=":443"; ma=86400'
+  },
+  requestID: 'req_50e1dc7d334951bcd30c81f4e3cb4851',
+  error: [Object],
+  code: 'invalid_api_key',
+  param: null,
+  type: 'invalid_request_error'
+}
+ POST /api/analyze 500 in 336ms
