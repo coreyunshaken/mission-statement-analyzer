@@ -324,3 +324,4 @@ Error analyzing mission statement: Error: 401 Incorrect API key provided: your_o
   type: 'invalid_request_error'
 }
  POST /api/analyze 500 in 336ms
+ ✓ Compiled in 217ms (424 modules)
