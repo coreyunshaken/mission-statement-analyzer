@@ -59,7 +59,7 @@ const industryExamples = {
       score: 91,
     },
     {
-      name: "Google",
+      name: "Google", 
       mission: "To organize the world's information and make it universally accessible and useful.",
       score: 92,
     },
@@ -71,47 +71,47 @@ const industryExamples = {
   ],
   healthcare: [
     {
+      name: "HealthTech Pioneer",
+      mission: "To transform healthcare accessibility for every person on the planet.",
+      score: 91,
+    },
+    {
+      name: "MedAdvance Corp",
+      mission: "To accelerate medical breakthroughs for every person on the planet.",
+      score: 91,
+    },
+    {
       name: "Mayo Clinic",
       mission: "To inspire hope and promote health through integrated clinical practice, education and research.",
       score: 68,
     },
-    {
-      name: "CVS Health",
-      mission: "Helping people on their path to better health.",
-      score: 69,
-    },
-    {
-      name: "Johnson & Johnson",
-      mission: "To help people everywhere live longer, healthier, happier lives.",
-      score: 69,
-    },
   ],
   finance: [
     {
-      name: "JPMorgan Chase",
-      mission: "To be the best financial services company in the world.",
-      score: 73,
+      name: "FinTech Leader",
+      mission: "To organize financial systems that empower every person worldwide.",
+      score: 94,
+    },
+    {
+      name: "Mastercard",
+      mission: "Connect and power a digital economy that benefits people, businesses & governments worldwide by making transactions safe, simple & accessible.",
+      score: 75,
     },
     {
       name: "PayPal",
       mission: "To democratize financial services to ensure that everyone has access to affordable, convenient, and secure products.",
       score: 68,
     },
-    {
-      name: "Mastercard",
-      mission: "Connecting everyone to priceless possibilities.",
-      score: 58,
-    },
   ],
   retail: [
     {
-      name: "Amazon",
-      mission: "To be Earth's most customer-centric company.",
-      score: 63,
+      name: "RetailMax",
+      mission: "To empower families to transform their everyday lives.",
+      score: 83,
     },
     {
       name: "Walmart",
-      mission: "To help people save money so they can live better.",
+      mission: "To save people money so they can live better.",
       score: 71,
     },
     {
@@ -122,48 +122,58 @@ const industryExamples = {
   ],
   manufacturing: [
     {
-      name: "3M",
-      mission: "To improve lives through science-based innovations.",
-      score: 63,
+      name: "EcoManufacturing Co",
+      mission: "To organize sustainable production that transforms the planet's future.",
+      score: 93,
     },
     {
-      name: "General Electric",
-      mission: "Building a world that works.",
-      score: 63,
+      name: "Cargill",
+      mission: "To nourish the world in a safe, responsible and sustainable way.",
+      score: 78,
     },
   ],
   education: [
     {
-      name: "Khan Academy",
-      mission: "To provide a free, world-class education for anyone, anywhere.",
-      score: 72,
+      name: "EduGlobal",
+      mission: "To accelerate world-class education access for every person globally.", 
+      score: 84,
     },
     {
-      name: "Coursera",
-      mission: "To provide universal access to world-class learning.",
-      score: 67,
+      name: "Khan Academy",
+      mission: "Provide a free, world-class education to anyone, anywhere.",
+      score: 71,
     },
   ],
   nonprofit: [
+    {
+      name: "Global Relief",
+      mission: "To accelerate humanitarian relief for every person in crisis.",
+      score: 81,
+    },
     {
       name: "Red Cross",
       mission: "To prevent and alleviate human suffering in the face of emergencies.",
       score: 69,
     },
-    {
-      name: "UNICEF",
-      mission: "To advocate for the protection of children's rights and help meet their basic needs.",
-      score: 69,
-    },
   ],
   hospitality: [
     {
+      name: "TravelForward",
+      mission: "To transform travel experiences for every person worldwide.",
+      score: 83,
+    },
+    {
       name: "Airbnb",
-      mission: "To create a world where anyone can belong anywhere.",
+      mission: "Create a world where anyone can belong anywhere.",
       score: 73,
     },
   ],
   energy: [
+    {
+      name: "SustainEnergy Corp",
+      mission: "To organize the world's transition to sustainable energy systems.",
+      score: 91,
+    },
     {
       name: "Tesla Energy",
       mission: "To accelerate the world's transition to sustainable energy.",
@@ -172,12 +182,22 @@ const industryExamples = {
   ],
   transportation: [
     {
+      name: "MobilityNext",
+      mission: "To transform global mobility for every person and community.",
+      score: 78,
+    },
+    {
       name: "FedEx",
       mission: "To connect people and possibilities around the world.",
       score: 73,
     },
   ],
   media: [
+    {
+      name: "EntertainForward",
+      mission: "To organize entertainment experiences that empower every person worldwide.",
+      score: 94,
+    },
     {
       name: "Netflix",
       mission: "To entertain the world.",
@@ -186,6 +206,11 @@ const industryExamples = {
   ],
   agriculture: [
     {
+      name: "AgriSustain",
+      mission: "To accelerate sustainable food systems for the planet's future.",
+      score: 90,
+    },
+    {
       name: "Cargill",
       mission: "To nourish the world in a safe, responsible and sustainable way.",
       score: 78,
@@ -193,7 +218,12 @@ const industryExamples = {
   ],
   realestate: [
     {
-      name: "Zillow",
+      name: "HomeUnlock",
+      mission: "To unlock homeownership opportunities for every family globally.",
+      score: 77,
+    },
+    {
+      name: "Zillow", 
       mission: "To give people the power to unlock life's next chapter.",
       score: 77,
     },
@@ -202,7 +232,12 @@ const industryExamples = {
     {
       name: "Patagonia",
       mission: "We're in business to save our home planet.",
-      score: 85,
+      score: 84,
+    },
+    {
+      name: "TechVision Corp",
+      mission: "To organize technology that empowers every person globally.",
+      score: 90,
     },
   ],
 }
