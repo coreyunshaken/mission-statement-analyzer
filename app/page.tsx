@@ -628,50 +628,6 @@ export default function MissionStatementAnalyzer() {
                       ))}
                     </div>
 
-                    {/* Score-based Product Recommendation */}
-                    {(() => {
-                      const product = getRecommendedProduct(scores.overall);
-                      return (
-                        <Card className={`${
-                          product.urgency === 'high' ? 'border-red-200 bg-red-50' :
-                          product.urgency === 'medium' ? 'border-yellow-200 bg-yellow-50' :
-                          'border-green-200 bg-green-50'
-                        } mt-4`}>
-                          <CardContent className="p-4">
-                            <div className="flex justify-between items-start">
-                              <div className="flex-1">
-                                <h4 className={`font-semibold mb-1 ${
-                                  product.urgency === 'high' ? 'text-red-800' :
-                                  product.urgency === 'medium' ? 'text-yellow-800' :
-                                  'text-green-800'
-                                }`}>
-                                  {product.title}
-                                </h4>
-                                <p className={`text-sm mb-3 ${
-                                  product.urgency === 'high' ? 'text-red-700' :
-                                  product.urgency === 'medium' ? 'text-yellow-700' :
-                                  'text-green-700'
-                                }`}>
-                                  {product.description}
-                                </p>
-                                <Button
-                                  onClick={() => window.open(product.gumroadUrl, '_blank')}
-                                  className={`${
-                                    product.urgency === 'high' ? 'bg-red-600 hover:bg-red-700' :
-                                    product.urgency === 'medium' ? 'bg-yellow-600 hover:bg-yellow-700' :
-                                    'bg-green-600 hover:bg-green-700'
-                                  } text-white`}
-                                  size="sm"
-                                >
-                                  <ExternalLink className="h-4 w-4 mr-2" />
-                                  {product.buttonText} - {product.price}
-                                </Button>
-                              </div>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      );
-                    })()}
 
                     {/* Action Buttons */}
                     <div className="flex gap-3 pt-4 border-t">
@@ -687,6 +643,51 @@ export default function MissionStatementAnalyzer() {
                   </div>
                 </CardContent>
               </Card>
+            )}
+
+            {/* Score-based Product Recommendation */}
+            {isAnalyzed && scores && (
+              (() => {
+                const product = getRecommendedProduct(scores.overall);
+                return (
+                  <Card className={`mb-6 ${
+                    product.urgency === 'high' ? 'border-red-200 bg-red-50' :
+                    product.urgency === 'medium' ? 'border-yellow-200 bg-yellow-50' :
+                    'border-green-200 bg-green-50'
+                  }`}>
+                    <CardContent className="p-6">
+                      <div className="text-center">
+                        <h3 className={`text-lg font-semibold mb-2 ${
+                          product.urgency === 'high' ? 'text-red-800' :
+                          product.urgency === 'medium' ? 'text-yellow-800' :
+                          'text-green-800'
+                        }`}>
+                          {product.title}
+                        </h3>
+                        <p className={`text-sm mb-4 ${
+                          product.urgency === 'high' ? 'text-red-700' :
+                          product.urgency === 'medium' ? 'text-yellow-700' :
+                          'text-green-700'
+                        }`}>
+                          {product.description}
+                        </p>
+                        <Button
+                          onClick={() => window.open(product.gumroadUrl, '_blank')}
+                          className={`${
+                            product.urgency === 'high' ? 'bg-red-600 hover:bg-red-700' :
+                            product.urgency === 'medium' ? 'bg-yellow-600 hover:bg-yellow-700' :
+                            'bg-green-600 hover:bg-green-700'
+                          } text-white`}
+                          size="lg"
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          {product.buttonText} - {product.price}
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })()
             )}
 
             {/* Industry Examples */}
