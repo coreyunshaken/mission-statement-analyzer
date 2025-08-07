@@ -31,6 +31,9 @@ import {
   Zap,
   Shield,
   Brain,
+  Lock,
+  CreditCard,
+  ExternalLink,
 } from "lucide-react"
 
 const industries = [
@@ -256,17 +259,40 @@ export default function MissionStatementAnalyzer() {
   const [scores, setScores] = useState<any>(null)
   const [activeView, setActiveView] = useState("analyzer")
   const [savedAnalyses, setSavedAnalyses] = useState<any[]>([])
+  const [analysisCount, setAnalysisCount] = useState(0)
+  const [showPaywall, setShowPaywall] = useState(false)
+
+  // Load analysis count from localStorage on mount
+  useMemo(() => {
+    if (typeof window !== 'undefined') {
+      const stored = localStorage.getItem('analysisCount')
+      setAnalysisCount(stored ? parseInt(stored) : 0)
+    }
+  }, [])
 
   const wordCount = useMemo(() => {
     return missionText.trim().split(/\s+/).filter(word => word.length > 0).length
   }, [missionText])
 
+  const FREE_ANALYSIS_LIMIT = 3
+
   const handleAnalyze = useCallback(() => {
     if (missionText.trim().length < 10) return
+    
+    // Check if user has exceeded free limit
+    if (analysisCount >= FREE_ANALYSIS_LIMIT) {
+      setShowPaywall(true)
+      return
+    }
     
     const calculatedScores = calculateAllScores(missionText)
     setScores(calculatedScores)
     setIsAnalyzed(true)
+    
+    // Increment and store analysis count
+    const newCount = analysisCount + 1
+    setAnalysisCount(newCount)
+    localStorage.setItem('analysisCount', newCount.toString())
     
     // Add to saved analyses
     setSavedAnalyses(prev => [{
@@ -276,7 +302,7 @@ export default function MissionStatementAnalyzer() {
       industry: selectedIndustry,
       date: new Date().toLocaleDateString()
     }, ...prev].slice(0, 5))
-  }, [missionText, selectedIndustry])
+  }, [missionText, selectedIndustry, analysisCount])
 
   const handleExampleClick = useCallback((example: any) => {
     setMissionText(example.mission)
@@ -316,10 +342,86 @@ export default function MissionStatementAnalyzer() {
     return "Needs Work"
   }
 
+  const getRecommendedProduct = useCallback((score: number) => {
+    if (score <= 59) {
+      return {
+        title: "🚨 Emergency Kit Needed",
+        description: "Your score indicates critical issues. Get the Emergency Kit to fix this in 15 minutes.",
+        price: "$27",
+        urgency: "high",
+        gumroadUrl: "https://gumroad.com/l/mission-emergency-kit", // Replace with your actual URL
+        buttonText: "Get Emergency Kit Now"
+      }
+    } else if (score <= 79) {
+      return {
+        title: "📈 Optimization Guide Available", 
+        description: "Good start! Get the Optimization Guide to push your score into the excellent range.",
+        price: "$19",
+        urgency: "medium",
+        gumroadUrl: "https://gumroad.com/l/mission-optimization-guide", // Replace with your actual URL
+        buttonText: "Get Optimization Guide"
+      }
+    } else {
+      return {
+        title: "🏆 Excellent Score!",
+        description: "Want advanced tips for Fortune 500 level mission statements?",
+        price: "$9",
+        urgency: "low",
+        gumroadUrl: "https://gumroad.com/l/mission-advanced-tips", // Replace with your actual URL
+        buttonText: "Get Advanced Tips"
+      }
+    }
+  }, [])
+
   const currentExamples = industryExamples[selectedIndustry as keyof typeof industryExamples] || []
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Paywall Modal */}
+      {showPaywall && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-lg p-8 max-w-md mx-4 relative">
+            <button
+              onClick={() => setShowPaywall(false)}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+            >
+              <XCircle className="h-6 w-6" />
+            </button>
+            
+            <div className="text-center">
+              <Lock className="h-12 w-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold mb-2">Free Analyses Used</h3>
+              <p className="text-gray-600 mb-6">
+                You've used your {FREE_ANALYSIS_LIMIT} free analyses. Get unlimited access plus our comprehensive improvement guides.
+              </p>
+              
+              <div className="space-y-3">
+                <Button
+                  onClick={() => window.open('https://gumroad.com/l/mission-emergency-kit', '_blank')}
+                  className="w-full bg-red-600 hover:bg-red-700"
+                  size="lg"
+                >
+                  <CreditCard className="h-4 w-4 mr-2" />
+                  Get Emergency Kit + Unlimited - $27
+                </Button>
+                
+                <Button
+                  variant="outline"
+                  onClick={() => window.open('https://gumroad.com/l/mission-unlimited', '_blank')}
+                  className="w-full"
+                >
+                  Just Unlimited Analyses - $9
+                </Button>
+              </div>
+              
+              <p className="text-xs text-gray-500 mt-4">
+                Instant access • 30-day money back guarantee
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -334,6 +436,9 @@ export default function MissionStatementAnalyzer() {
               </div>
             </div>
             <div className="flex items-center gap-4">
+              <div className="text-sm text-gray-600">
+                Free analyses: {analysisCount}/{FREE_ANALYSIS_LIMIT}
+              </div>
               <Button variant="ghost" size="sm" className="text-gray-600">
                 <BookOpen className="h-4 w-4 mr-2" />
                 Guide
@@ -522,6 +627,51 @@ export default function MissionStatementAnalyzer() {
                         </div>
                       ))}
                     </div>
+
+                    {/* Score-based Product Recommendation */}
+                    {(() => {
+                      const product = getRecommendedProduct(scores.overall);
+                      return (
+                        <Card className={`${
+                          product.urgency === 'high' ? 'border-red-200 bg-red-50' :
+                          product.urgency === 'medium' ? 'border-yellow-200 bg-yellow-50' :
+                          'border-green-200 bg-green-50'
+                        } mt-4`}>
+                          <CardContent className="p-4">
+                            <div className="flex justify-between items-start">
+                              <div className="flex-1">
+                                <h4 className={`font-semibold mb-1 ${
+                                  product.urgency === 'high' ? 'text-red-800' :
+                                  product.urgency === 'medium' ? 'text-yellow-800' :
+                                  'text-green-800'
+                                }`}>
+                                  {product.title}
+                                </h4>
+                                <p className={`text-sm mb-3 ${
+                                  product.urgency === 'high' ? 'text-red-700' :
+                                  product.urgency === 'medium' ? 'text-yellow-700' :
+                                  'text-green-700'
+                                }`}>
+                                  {product.description}
+                                </p>
+                                <Button
+                                  onClick={() => window.open(product.gumroadUrl, '_blank')}
+                                  className={`${
+                                    product.urgency === 'high' ? 'bg-red-600 hover:bg-red-700' :
+                                    product.urgency === 'medium' ? 'bg-yellow-600 hover:bg-yellow-700' :
+                                    'bg-green-600 hover:bg-green-700'
+                                  } text-white`}
+                                  size="sm"
+                                >
+                                  <ExternalLink className="h-4 w-4 mr-2" />
+                                  {product.buttonText} - {product.price}
+                                </Button>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      );
+                    })()}
 
                     {/* Action Buttons */}
                     <div className="flex gap-3 pt-4 border-t">
