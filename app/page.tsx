@@ -629,17 +629,6 @@ export default function MissionStatementAnalyzer() {
                     </div>
 
 
-                    {/* Action Buttons */}
-                    <div className="flex gap-3 pt-4 border-t">
-                      <Button variant="outline" className="flex-1">
-                        <Download className="h-4 w-4 mr-2" />
-                        Download Report
-                      </Button>
-                      <Button variant="outline" className="flex-1">
-                        <Save className="h-4 w-4 mr-2" />
-                        Save Analysis
-                      </Button>
-                    </div>
                   </div>
                 </CardContent>
               </Card>
