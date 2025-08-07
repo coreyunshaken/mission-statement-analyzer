@@ -22,7 +22,6 @@ import {
   BarChart3,
   Target,
   Sparkles,
-  Building2,
   FileText,
   Download,
   Share2,
@@ -376,14 +375,6 @@ export default function MissionStatementAnalyzer() {
                 >
                   <Target className="h-4 w-4 mr-2" />
                   Analyzer
-                </Button>
-                <Button
-                  variant={activeView === "examples" ? "secondary" : "ghost"}
-                  className="w-full justify-start"
-                  onClick={() => setActiveView("examples")}
-                >
-                  <Building2 className="h-4 w-4 mr-2" />
-                  Industry Examples
                 </Button>
                 <Button
                   variant={activeView === "tips" ? "secondary" : "ghost"}
