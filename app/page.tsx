@@ -16,13 +16,8 @@ import {
 } from "@/components/ui/select"
 import {
   ChevronRight,
-  TrendingUp,
-  Award,
-  Users,
-  BarChart3,
   Target,
   Sparkles,
-  FileText,
   Download,
   Share2,
   BookOpen,
@@ -30,14 +25,11 @@ import {
   CheckCircle,
   AlertCircle,
   XCircle,
-  ArrowRight,
   History,
   Save,
-  Star,
   Globe,
   Zap,
   Shield,
-  Heart,
   Brain,
 } from "lucide-react"
 
@@ -172,7 +164,7 @@ const industryExamples = {
 }
 
 // Scoring functions (same as before)
-function calculateAllScores(text: string, industry: string) {
+function calculateAllScores(text: string) {
   const wordCount = text.trim().split(/\s+/).filter(word => word.length > 0).length
   
   return {
@@ -272,7 +264,7 @@ export default function MissionStatementAnalyzer() {
   const handleAnalyze = useCallback(() => {
     if (missionText.trim().length < 10) return
     
-    const calculatedScores = calculateAllScores(missionText, selectedIndustry)
+    const calculatedScores = calculateAllScores(missionText)
     setScores(calculatedScores)
     setIsAnalyzed(true)
     
@@ -290,7 +282,7 @@ export default function MissionStatementAnalyzer() {
     setMissionText(example.mission)
     
     // Auto-analyze the example
-    const calculatedScores = calculateAllScores(example.mission, selectedIndustry)
+    const calculatedScores = calculateAllScores(example.mission)
     setScores(calculatedScores)
     setIsAnalyzed(true)
     
