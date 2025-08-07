@@ -82,6 +82,11 @@ const industryExamples = {
       mission: "Helping people on their path to better health.",
       score: 69,
     },
+    {
+      name: "Johnson & Johnson",
+      mission: "To help people everywhere live longer, healthier, happier lives.",
+      score: 69,
+    },
   ],
   finance: [
     {
@@ -93,6 +98,76 @@ const industryExamples = {
       name: "PayPal",
       mission: "To democratize financial services to ensure that everyone has access to affordable, convenient, and secure products.",
       score: 68,
+    },
+    {
+      name: "Mastercard",
+      mission: "Connecting everyone to priceless possibilities.",
+      score: 58,
+    },
+  ],
+  retail: [
+    {
+      name: "Amazon",
+      mission: "To be Earth's most customer-centric company.",
+      score: 63,
+    },
+    {
+      name: "Walmart",
+      mission: "To help people save money so they can live better.",
+      score: 71,
+    },
+    {
+      name: "Target",
+      mission: "To help all families discover the joy of everyday life.",
+      score: 69,
+    },
+  ],
+  manufacturing: [
+    {
+      name: "3M",
+      mission: "To improve lives through science-based innovations.",
+      score: 63,
+    },
+    {
+      name: "General Electric",
+      mission: "Building a world that works.",
+      score: 63,
+    },
+  ],
+  education: [
+    {
+      name: "Khan Academy",
+      mission: "To provide a free, world-class education for anyone, anywhere.",
+      score: 72,
+    },
+    {
+      name: "Coursera",
+      mission: "To provide universal access to world-class learning.",
+      score: 67,
+    },
+  ],
+  nonprofit: [
+    {
+      name: "Red Cross",
+      mission: "To prevent and alleviate human suffering in the face of emergencies.",
+      score: 69,
+    },
+    {
+      name: "UNICEF",
+      mission: "To advocate for the protection of children's rights and help meet their basic needs.",
+      score: 69,
+    },
+  ],
+  hospitality: [
+    {
+      name: "Marriott",
+      mission: "To enhance lives through remarkable hospitality experiences.",
+      score: 64,
+    },
+    {
+      name: "Airbnb",
+      mission: "To create a world where anyone can belong anywhere.",
+      score: 73,
     },
   ],
 }
@@ -214,8 +289,21 @@ export default function MissionStatementAnalyzer() {
 
   const handleExampleClick = useCallback((example: any) => {
     setMissionText(example.mission)
-    setIsAnalyzed(false)
-  }, [])
+    
+    // Auto-analyze the example
+    const calculatedScores = calculateAllScores(example.mission, selectedIndustry)
+    setScores(calculatedScores)
+    setIsAnalyzed(true)
+    
+    // Add to saved analyses
+    setSavedAnalyses(prev => [{
+      id: Date.now(),
+      mission: example.mission,
+      scores: calculatedScores,
+      industry: selectedIndustry,
+      date: new Date().toLocaleDateString()
+    }, ...prev].slice(0, 5))
+  }, [selectedIndustry])
 
   const getScoreColor = (score: number) => {
     if (score >= 80) return "text-green-600"
