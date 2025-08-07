@@ -18,7 +18,6 @@ import {
   ChevronRight,
   Target,
   Sparkles,
-  Download,
   Share2,
   BookOpen,
   Lightbulb,
@@ -26,7 +25,6 @@ import {
   AlertCircle,
   XCircle,
   History,
-  Save,
   Globe,
   Zap,
   Shield,
@@ -627,8 +625,6 @@ export default function MissionStatementAnalyzer() {
                         </div>
                       ))}
                     </div>
-
-
                   </div>
                 </CardContent>
               </Card>
