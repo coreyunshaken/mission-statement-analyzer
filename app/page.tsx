@@ -43,6 +43,12 @@ const industries = [
   { value: "education", label: "Education", icon: "🎓" },
   { value: "nonprofit", label: "Non-Profit", icon: "🤝" },
   { value: "hospitality", label: "Hospitality", icon: "🏨" },
+  { value: "energy", label: "Energy", icon: "⚡" },
+  { value: "transportation", label: "Transportation", icon: "🚗" },
+  { value: "media", label: "Media & Entertainment", icon: "🎬" },
+  { value: "agriculture", label: "Agriculture", icon: "🌾" },
+  { value: "realestate", label: "Real Estate", icon: "🏠" },
+  { value: "other", label: "Other", icon: "🏢" },
 ]
 
 const industryExamples = {
@@ -152,14 +158,51 @@ const industryExamples = {
   ],
   hospitality: [
     {
-      name: "Marriott",
-      mission: "To enhance lives through remarkable hospitality experiences.",
-      score: 64,
-    },
-    {
       name: "Airbnb",
       mission: "To create a world where anyone can belong anywhere.",
       score: 73,
+    },
+  ],
+  energy: [
+    {
+      name: "Tesla Energy",
+      mission: "To accelerate the world's transition to sustainable energy.",
+      score: 91,
+    },
+  ],
+  transportation: [
+    {
+      name: "FedEx",
+      mission: "To connect people and possibilities around the world.",
+      score: 73,
+    },
+  ],
+  media: [
+    {
+      name: "Netflix",
+      mission: "To entertain the world.",
+      score: 63,
+    },
+  ],
+  agriculture: [
+    {
+      name: "Cargill",
+      mission: "To nourish the world in a safe, responsible and sustainable way.",
+      score: 78,
+    },
+  ],
+  realestate: [
+    {
+      name: "Zillow",
+      mission: "To give people the power to unlock life's next chapter.",
+      score: 77,
+    },
+  ],
+  other: [
+    {
+      name: "Patagonia",
+      mission: "We're in business to save our home planet.",
+      score: 85,
     },
   ],
 }
